@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .download-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+        .license-input {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button class="download-button" id="downloadBtn">Scarica il file</button>
+    <div class="license-input" id="licenseInput">
+        <label for="licenseKey">License-key:</label>
+        <input type="text" id="licenseKey" placeholder="Inserisci la tua licenza">
+        <button id="submitLicense">Invia</button>
+    </div>
+</div>
+
+<script>
+    const correctLicenseKey = "TRTOOLlicence10469"; // Sostituisci con la tua chiave di licenza
+    const downloadBtn = document.getElementById('downloadBtn');
+    const licenseInput = document.getElementById('licenseInput');
+    const submitLicense = document.getElementById('submitLicense');
+    const licenseKey = document.getElementById('licenseKey');
+
+    downloadBtn.addEventListener('click', () => {
+        licenseInput.style.display = 'block';
+    });
+
+    submitLicense.addEventListener('click', () => {
+        if (licenseKey.value === correctLicenseKey) {
+            // Sostituisci con il link diretto al tuo file
+            window.location.href = 'https://<username>.github.io/<repository>/tuo-file.zip';
+        } else {
+            alert('Chiave di licenza errata. Riprova.');
+        }
+    });
+</script>
+
+</body>
+</html>
